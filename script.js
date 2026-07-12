@@ -123,7 +123,7 @@ function renderBuilds() {
                     deleteBtn.textContent = "Delete";
                     deleteBtn.className = "delete-btn";
                     deleteBtn.addEventListener("click", function(){
-                        deleteItem(buildIndex, slotName, itemIndex);
+                        deleteItem(buildIndex, item.id);
                     });
                     itemLabel.appendChild(deleteBtn);
 
@@ -152,6 +152,7 @@ function addItem(buildIndex, slotIndex, inputElement) { // Tar emot 3 parametrar
 
     // Skapa item-objekt
     let item = {
+        id: Date.now(),
         name: itemName,
         slot: slots[slotIndex],
         done: false,
@@ -169,26 +170,14 @@ function addItem(buildIndex, slotIndex, inputElement) { // Tar emot 3 parametrar
 }
 
 /* --- Ta bort ett item --- */
-function deleteItem(buildIndex, slotName, itemIndex) {
+function deleteItem(buildIndex, itemId) {
 
     // Hämta rätt build
     let build = builds[buildIndex];
 
-    // Filtrera bort item:et som ska tas bort
-    // Behåller alla items som INTE matchar både slot och index
-    let slotItems = [];
-    build.items.forEach(function(item) {
-        if (item.slot === slotName) {
-            slotItems.push(item);
-            }
-    });
 
-    // Ta bort item på position itemIndex i slotItems
-    let itemToRemove = slotItems[itemIndex];
-
-    // Filtrera bort exakt detta item från build.items
     build.items = build.items.filter(function(item) {
-        return item !== itemToRemove;
+        return item.id !== itemId;
     });
 
     // Spara och rendera om
