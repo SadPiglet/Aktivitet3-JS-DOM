@@ -58,7 +58,7 @@ function renderBuilds() {
         deleteBuildBtn.textContent = "Remove Build";
         deleteBuildBtn.className = "delete-build-btn";
         deleteBuildBtn.addEventListener("click", function() {
-            deleteBuildBtn(buildIndex);
+            deleteBuild(buildIndex);
         });
         card.appendChild(deleteBuildBtn);
 
