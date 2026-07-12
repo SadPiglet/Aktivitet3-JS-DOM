@@ -28,6 +28,7 @@ MH WILDS BUILD CHECKLIST
 }
 
 body {
+  margin: 0 auto !important;
   background: var(--bg);
   background-image:
     url("https://www.transparenttextures.com/patterns/leather.png"),
@@ -38,7 +39,6 @@ body {
   color: var(--text);
   font-family: 'Montenegrin Gothic One', Helvetica;
   max-width: 650px;
-  margin: 0 auto;
   padding: 40px 20px;
   line-height: 1.8;
 }

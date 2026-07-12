@@ -89,10 +89,21 @@ function renderBuilds() {
 
             // Koppla knappen till addItem funktionen. addEventListener lyssnar efter klick på knappen och anropar funktionen.
             btn.addEventListener("click", function() {
-                addItem(buildIndex, slotIndex, input);
+                addItem(buildIndex, slotName, input);
             });
 
             row.appendChild(btn);
+
+            // Kolla om slot redan har ett item
+            let existingItem = build.items.find(function(item) {
+                return item.slot === slotName;
+            });
+
+            // Om items finns dölj input och knapp
+            if (existingItem) {
+                input.style.display = "none";
+                btn.style.display = "none";
+            }
 
             card.appendChild(row);
 
@@ -151,7 +162,7 @@ function renderBuilds() {
 }
 
 /* --- 5. Lägg till item i en slot och ta bort item--- */
-function addItem(buildIndex, slotIndex, inputElement) { // Tar emot 3 parametrar
+function addItem(buildIndex, slotName, inputElement) { // Tar emot 3 parametrar
 
     // Hämta texten från input-fältet
     let itemName = inputElement.value.trim();
@@ -163,11 +174,16 @@ function addItem(buildIndex, slotIndex, inputElement) { // Tar emot 3 parametrar
     let item = {
         id: Date.now(),
         name: itemName,
-        slot: slots[slotIndex],
+        slot: slotName,
         done: false,
     };
 
-    // Lägg till item i rätt build
+    // Ta bort eventuellt gammalt item i samma slot
+    builds[buildIndex].items = builds[buildIndex].items.filter(function(existingItem) {
+        return existingItem.slot !== slotName;
+    });
+
+    // Lägg till det nya item:et
     builds[buildIndex].items.push(item);
 
     // Rensa input-fältet
