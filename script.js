@@ -53,6 +53,15 @@ function renderBuilds() {
         heading.textContent = build.name; 
         card.appendChild(heading); // Lägger in rubriken i kortet
 
+        // Ta bort build-knapp
+        let deleteBuildBtn = document.createElement("button");
+        deleteBuildBtn.textContent = "Remove Build";
+        deleteBuildBtn.className = "delete-build-btn";
+        deleteBuildBtn.addEventListener("click", function() {
+            deleteBuildBtn(buildIndex);
+        });
+        card.appendChild(deleteBuildBtn);
+
         // Loopa igenom alla 6 gear slots
         slots.forEach(function(slotName, slotIndex) {
 
@@ -183,6 +192,23 @@ function deleteItem(buildIndex, itemId) {
     // Spara och rendera om
     saveBuilds();
     renderBuilds();
+}
+
+/* --- Ta bort en hel build --- */
+function deleteBuild(buildIndex) {
+
+    // Bekräfta
+    let buildName = builds[buildIndex].name;
+    let confirmDelete = confirm("Do you want to remove the build \"" + buildName + "\"?");
+
+    if (confirmDelete) {
+        // Ta bort builden från arrayen
+        builds.splice(buildIndex, 1);
+
+        // Spara och rendera om
+        saveBuilds();
+        renderBuilds();
+    }
 }
 
 /* --- 6. Skapa ny build --- */

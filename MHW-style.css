@@ -139,6 +139,7 @@ h1 {
   background: none;
   border: none;
   cursor: pointer;
+  font-family: 'Montenegrin Gothic One', Helvetica;
   font-size: 0.9em;
   margin-left: 5px;
   opacity: 0.5;
@@ -147,6 +148,24 @@ h1 {
 
 .delete-btn:hover {
   opacity: 1;
+}
+
+.delete-build-btn {
+  background: none;
+  border: 3px solid var(--border);
+  color: var(--heading);
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Montenegrin Gothic One', Helvetica;
+  font-size: 0.8em;
+  margin-top: 4px;
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.delete-build-btn:hover {
+  opacity: 1;
+  background: rgba(139, 74, 58, 0.1);
 }
 
 /* --- 6. Checkbox + label --- */
