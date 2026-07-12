@@ -53,15 +53,6 @@ function renderBuilds() {
         heading.textContent = build.name; 
         card.appendChild(heading); // Lägger in rubriken i kortet
 
-        // Ta bort build-knapp
-        let deleteBuildBtn = document.createElement("button");
-        deleteBuildBtn.textContent = "Remove Build";
-        deleteBuildBtn.className = "delete-build-btn";
-        deleteBuildBtn.addEventListener("click", function() {
-            deleteBuild(buildIndex);
-        });
-        card.appendChild(deleteBuildBtn);
-
         // Loopa igenom alla 6 gear slots
         slots.forEach(function(slotName, slotIndex) {
 
@@ -155,7 +146,15 @@ function renderBuilds() {
         });
 
         
-
+        // Ta bort build-knapp
+        let deleteBuildBtn = document.createElement("button");
+        deleteBuildBtn.textContent = "Remove Build";
+        deleteBuildBtn.className = "delete-build-btn";
+        deleteBuildBtn.addEventListener("click", function() {
+            deleteBuild(buildIndex);
+        });
+        card.appendChild(deleteBuildBtn);
+        
         // Lägg till kortet i container
         buildsContainer.appendChild(card);
     });
