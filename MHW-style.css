@@ -1,0 +1,176 @@
+/* ==============================
+MH WILDS BUILD CHECKLIST
+   ============================== */
+
+/* --- 1. CSS-variabler --- */
+:root {
+  --bg: #f5ebe0;
+  --text: #3d2e1e;
+  --heading: #8b4a3a;
+  --accent: #c9a96e;
+  --card-bg: rgba(255, 248, 240, 0.8);
+  --border: rgba(139, 74, 58, 0.3);
+  --done: #b8a89a;
+  --hover: #cfbc40;
+}
+
+/* --- 2. Bas --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montenegrin Gothic One', Helvetica;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: 1.8;
+}
+
+/* --- 3. Header --- */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: var(--heading);
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: var(--accent);
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+/* --- 4. Formulär ---*/
+.new-build-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+#build-name-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 3px solid var(--border);
+  background: var(--card-bg);
+  font-family: 'Montenegrin Gothic One', Helvetica;
+  font-size: 0.9em;
+}
+
+#build-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Montenegrin Gothic One', Helvetica;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#build-btn:hover {
+  background: var(--hover);
+}
+
+/* --- 5. Build-kort --- */
+.build-card {
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.build-card h2 {
+  color: var(--heading);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.slot-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.slot-label {
+  width: 50px;
+  font-weight: 500;
+  color: var(--heading);
+  font-size: 0.9em;
+}
+
+.slot-input {
+  flex: 1;
+  padding: 10px 10px;
+  border: 3px solid var(--border);
+  background: #fff;
+  font-family: 'Montenegrin Gothic One', Helvetica;
+  font-size: 0.9em;
+  margin: 10px;
+}
+
+.slot-btn {
+  background: var(--accent);
+  color: #fff;
+  border: 3px solid var(--heading);
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: 'Montenegrin Gothic One', Helvetica;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.slot-btn:hover {
+  background: var(--hover);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-left: 5px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+
+/* --- 6. Checkbox + label --- */
+label {
+  display: block;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--heading);
+  margin-right: 5px;
+}
+
+/* --- 7. Klar - Stryks över --- */
+.done {
+  text-decoration: line-through;
+  color: var(--done);
+}
+
+/* --- 8. Footer --- */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: var(--heading);
+  font-size: 0.9em;
+}
