@@ -4,14 +4,20 @@ MH WILDS BUILD CHECKLIST
 
 /* --- 1. CSS-variabler --- */
 :root {
-  --bg: #f5ebe0;
-  --text: #3d2e1e;
-  --heading: #8b4a3a;
-  --accent: #c9a96e;
-  --card-bg: rgba(255, 248, 240, 0.8);
-  --border: rgba(139, 74, 58, 0.3);
-  --done: #b8a89a;
-  --hover: #cfbc40;
+  --bg: #1c1516;
+  --card-bg: #261d1f;
+  --text: #d8ccba;
+  --heading: #b8a06a;
+  --accent: #b8a06a;
+  --border: rgba(170, 140, 95, 0.64);
+  --done: #7d6e5e;
+  --hover: #e8c16c;
+  --input-bg: #2e2224;
+  --danger: #c97a6a;
+  --text-shdw: 1px 3px 3px rgba(15, 5, 4, 1);
+  --box-glow: 0 0 10px rgba(255, 201, 119, 0.64);
+  --box-shdw: 0 4px 20px rgba(34, 6, 1, 0.5);
+  --red-glow: 0 4px 20px rgba(94, 23, 18, 0.5);
 }
 
 /* --- 2. Bas --- */
@@ -23,6 +29,12 @@ MH WILDS BUILD CHECKLIST
 
 body {
   background: var(--bg);
+  background-image:
+    url("https://www.transparenttextures.com/patterns/leather.png"),
+    radial-gradient(ellipse at 30% 20%, rgba(184, 160, 106, 0.06) 0%, transparent 80%),
+    radial-gradient(ellipse at 70% 80%, rgba(184, 160, 106, 0.04) 0%, transparent 80%);
+  background-blend-mode: soft-light;
+  background-size: 600px;
   color: var(--text);
   font-family: 'Montenegrin Gothic One', Helvetica;
   max-width: 650px;
@@ -42,12 +54,14 @@ h1 {
   font-size: 2em;
   font-weight: 500;
   letter-spacing: 2px;
+  text-shadow: var(--text-shdw);
 }
 
 .subtitle {
   color: var(--accent);
   font-size: 1em;
   letter-spacing: 1px;
+  text-shadow: var(--text-shdw);
 }
 
 /* --- 4. Formulär ---*/
@@ -62,23 +76,35 @@ h1 {
   padding: 10px 14px;
   border: 3px solid var(--border);
   background: var(--card-bg);
+  color: var(--text);
   font-family: 'Montenegrin Gothic One', Helvetica;
   font-size: 0.9em;
+  box-shadow: var(--red-glow);
+}
+
+#build-name-input:focus {
+  outline: none;
+  border-color: rgba(255, 199, 116, 0.64);
+  box-shadow: var(--box-glow);
 }
 
 #build-btn {
   background: var(--accent);
-  color: #fff;
+  color: var(--card-bg);
   border: none;
   padding: 10px 20px;
   font-family: 'Montenegrin Gothic One', Helvetica;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.3s;
+  box-shadow: var(--red-glow);
+  border: 3px solid #896129;
 }
 
 #build-btn:hover {
   background: var(--hover);
+  border: 3px solid var(--hover);
+  box-shadow: var(--box-glow);
 }
 
 /* --- 5. Build-kort --- */
@@ -87,12 +113,14 @@ h1 {
   border: 3px solid var(--border);
   padding: 20px;
   margin: 15px 0;
+  box-shadow: var(--red-glow);
 }
 
 .build-card h2 {
   color: var(--heading);
   font-weight: 500;
   margin-bottom: 10px;
+  text-shadow: var(--text-shdw);
 }
 
 .slot-row {
@@ -107,21 +135,30 @@ h1 {
   font-weight: 500;
   color: var(--heading);
   font-size: 0.9em;
+  text-shadow: var(--text-shdw);
 }
 
 .slot-input {
   flex: 1;
   padding: 10px 10px;
   border: 3px solid var(--border);
-  background: #fff;
+  background: var(--input-bg);
+  color: var(--text);
   font-family: 'Montenegrin Gothic One', Helvetica;
   font-size: 0.9em;
   margin: 10px;
+  box-shadow: var(--box-shdw);
+}
+
+.slot-input:focus {
+  outline: none;
+  border-color: rgba(255, 199, 116, 0.64);
+  box-shadow: var(--box-glow);
 }
 
 .slot-btn {
   background: var(--accent);
-  color: #fff;
+  color: var(--card-bg);
   border: 3px solid var(--heading);
   padding: 8px 14px;
   border-radius: 2px;
@@ -129,21 +166,26 @@ h1 {
   font-family: 'Montenegrin Gothic One', Helvetica;
   font-weight: 500;
   transition: background 0.3s;
+  box-shadow: var(--box-shdw);
 }
 
 .slot-btn:hover {
   background: var(--hover);
+  box-shadow: var(--box-glow);
+  border: 3px solid var(--hover);
 }
 
 .delete-btn {
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--accent);
   font-family: 'Montenegrin Gothic One', Helvetica;
   font-size: 0.9em;
-  margin-left: 5px;
+  margin-left: 20px;
   opacity: 0.5;
   transition: opacity 0.2s;
+  text-shadow: var(--text-shdw);
 }
 
 .delete-btn:hover {
@@ -161,11 +203,13 @@ h1 {
   margin-top: 4px;
   opacity: 0.6;
   transition: all 0.2s;
+  box-shadow: var(--box-shdw);
 }
 
 .delete-build-btn:hover {
   opacity: 1;
   background: rgba(139, 74, 58, 0.1);
+  box-shadow: 0 4px 10px rgba(194, 63, 40, 0.5);
 }
 
 /* --- 6. Checkbox + label --- */
@@ -173,11 +217,44 @@ label {
   display: block;
   padding: 4px 0;
   cursor: pointer;
+  text-shadow: var(--text-shdw);
 }
 
 input[type="checkbox"] {
-  accent-color: var(--heading);
+  accent-color: var(--danger);
   margin-right: 5px;
+}
+
+.item-list input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  background: var(--input-bg);
+  cursor: pointer;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s;
+  box-shadow: var(--box-shdw);
+}
+
+/* När den är kryssad */
+.item-list input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: var(--box-shdw);
+}
+
+/* Checkmark */
+.item-list input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: -2px;
+  left: 3px;
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* --- 7. Klar - Stryks över --- */
@@ -192,4 +269,5 @@ footer {
   margin-top: 50px;
   color: var(--heading);
   font-size: 0.9em;
+  text-shadow: var(--text-shdw);
 }
