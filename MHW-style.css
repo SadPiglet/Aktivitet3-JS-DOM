@@ -271,3 +271,8 @@ footer {
   font-size: 0.9em;
   text-shadow: var(--text-shdw);
 }
+
+.fine-print {
+  color: var(--heading);
+  text-shadow: var(--text-shdw);
+}
